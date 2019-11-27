@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tutorials
+from .models import Tutorial, TutorialCategory, TutorialSeries
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
@@ -8,7 +8,7 @@ from .forms import NewUserForm
 # Create your views here.
 
 def homepage(request):
-    return render(request, "main/home.html", {"tutorials":Tutorials.objects.all})
+    return render(request, "main/home.html", {"tutorials":Tutorial.objects.all})
 
 def register(request):
     if request.method == "POST":
